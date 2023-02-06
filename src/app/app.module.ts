@@ -7,11 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { BodyInfoComponent } from './main-menu/body-info/body-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
   ],
   imports: [
     BrowserModule,

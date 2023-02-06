@@ -7,6 +7,11 @@ const routes: Routes = [
       path: '',
       component: MainMenuComponent,
   },
+  {
+    path: 'body-info',
+    loadChildren: () =>
+    import('./body-info/body-info.module').then((m) => m.BodyInfoModule),
+},
 ];
 
 @NgModule({

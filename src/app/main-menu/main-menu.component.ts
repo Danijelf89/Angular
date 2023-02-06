@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppType } from '../enums/app-type';
 
 @Component({
@@ -8,19 +9,15 @@ import { AppType } from '../enums/app-type';
 })
 export class MainMenuComponent {
   appType = AppType;
+constructor(private router : Router)
+{
+
+}
+  
 
   chosenApp(appNumber : AppType)
   {
 
-    console.log(appNumber);
-
-    if(appNumber === AppType.PodaciOTelu)
-    {
-      console.log('App is podaci o telu');
-    }
-    else if (appNumber === AppType.PodciOPritisku)
-    {
-      console.log('App is podaci o pritisku');
-    }
+    this.router.navigate(['menu/body-info'])
   }
 }
