@@ -18,6 +18,6 @@ constructor(private router : Router)
   chosenApp(appNumber : AppType)
   {
 
-    this.router.navigate(['menu/body-info'])
+    this.router.navigate(['body-info'])
   }
 }

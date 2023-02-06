@@ -12,7 +12,11 @@ const routes: Routes = [
         loadChildren: () =>
         import('./main-menu/main-menu.module').then((m) => m.MainMenuModule),
     },
-
+    {
+        path: 'body-info',
+        loadChildren: () =>
+        import('./body-info/body-info.module').then((m) => m.BodyInfoModule),
+    },
 ]
 
 @NgModule({
