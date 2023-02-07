@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BodyInfoComponent } from './body-info.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 const routes: Routes = [
   {
@@ -14,9 +15,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [BodyInfoComponent],
   imports: [
-    CommonModule,
+    
     RouterModule.forChild(routes),
-    IonicModule,
+    SharedModuleModule
   ]
 })
 export class BodyInfoModule { }

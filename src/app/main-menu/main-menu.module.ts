@@ -5,15 +5,16 @@ import { MainMenuRoutingModule } from './main-menu-routing.module';
 import { UserInfoModule } from '../user-info/user-info.module';
 import { MainMenuComponent } from './main-menu.component';
 import { IonicModule } from '@ionic/angular';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 
 @NgModule({
   declarations: [MainMenuComponent],
   imports: [
-    CommonModule,
+    
     MainMenuRoutingModule,
     UserInfoModule,
-    IonicModule.forRoot()
+    SharedModuleModule
   ]
 })
 export class MainMenuModule { }

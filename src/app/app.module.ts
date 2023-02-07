@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { BodyInfoComponent } from './body-info/body-info.component';
+import { SharedModuleModule } from './shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,7 @@ import { BodyInfoComponent } from './body-info/body-info.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    IonicModule.forRoot(),
-    RouterModule,
+    SharedModuleModule,
     AppRoutingModule
   ],
   providers: [],
