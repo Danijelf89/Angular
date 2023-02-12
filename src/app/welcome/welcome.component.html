@@ -1,8 +1,17 @@
 
 <ion-header >
-    <ion-toolbar color="primary" class="ion-text-center">
-        <ion-label>Dobro dosli u aplikaciju. Molim prijavite se.</ion-label>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="end">
+        <ion-button>
+          <app-user-menu></app-user-menu>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
+    <ion-toolbar class="ion-text-center" color="primary">
+      <ion-label>{{'HOME.WELCOME' | translate}}</ion-label>
+    </ion-toolbar>
+        
+   
 </ion-header>
 <ion-content>
     <ion-grid>

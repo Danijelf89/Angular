@@ -1,0 +1,10 @@
+{
+    "HOME":
+    {
+        "WELCOME": "Dobro dosli u aplikaciju. Molim prijavite se.",
+        "SIGN_IN": "Prijava",
+        "BODY_DATA": "Podaci o telu",
+        "BODY_PREASURE_DATA": "Podaci o pritisku",
+        "SETTINGS": "Podesavanja"
+    }
+}

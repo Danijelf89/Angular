@@ -1,0 +1,10 @@
+{
+    "HOME":
+    {
+        "WELCOME": "Welcome to the application. Please log in.",
+        "SIGN_IN": "Sign in",
+        "BODY_DATA": "Body data",
+        "BODY_PREASURE_DATA": "Body preasure data",
+        "SETTINGS": "Settings"
+    }
+}

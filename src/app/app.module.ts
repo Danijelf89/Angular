@@ -1,16 +1,14 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IonicModule } from '@ionic/angular';
-import { MainMenuComponent } from './main-menu/main-menu.component';
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { UserInfoComponent } from './user-info/user-info.component';
-import { BodyInfoComponent } from './body-info/body-info.component';
-import { SharedModuleModule } from './shared-module/shared-module.module';
+import { SharedModuleModule } from './shared/shared-module/shared-module.module';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { httpLoaderFactory } from './factories/httpLoaderFactory';
+import { loadDefaultLanguage } from './factories/app-initializer-factory';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +18,25 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
     BrowserModule,
     BrowserAnimationsModule,
     SharedModuleModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }
+    )
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadDefaultLanguage,
+      multi: true,
+      deps: [TranslateService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

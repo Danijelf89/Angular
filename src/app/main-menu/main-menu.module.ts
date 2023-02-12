@@ -5,7 +5,8 @@ import { MainMenuRoutingModule } from './main-menu-routing.module';
 import { UserInfoModule } from '../user-info/user-info.module';
 import { MainMenuComponent } from './main-menu.component';
 import { IonicModule } from '@ionic/angular';
-import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { SharedModuleModule } from '../shared/shared-module/shared-module.module';
+import { UserMenuModule } from '../user-menu/user-menu.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     
     MainMenuRoutingModule,
     UserInfoModule,
-    SharedModuleModule
+    SharedModuleModule,
+    UserMenuModule
   ]
 })
 export class MainMenuModule { }

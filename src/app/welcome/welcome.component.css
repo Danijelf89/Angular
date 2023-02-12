@@ -1,3 +1,7 @@
 :host{
     display: contents;
 }
+
+ion-toolbar-settings{
+    --min-height:50px!important;
+  }
