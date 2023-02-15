@@ -8,11 +8,13 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { httpLoaderFactory } from './factories/httpLoaderFactory';
 import { loadDefaultLanguage } from './factories/app-initializer-factory';
+import { MonthChooserComponent } from './month-chooser/month-chooser.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

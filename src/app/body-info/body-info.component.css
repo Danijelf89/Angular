@@ -1,3 +1,11 @@
 :host{
     display: contents;
 }
+
+.fill-available{
+    width: -webkit-fill-available;
+}
+
+.allign-in-row {
+    display: flex;
+}
