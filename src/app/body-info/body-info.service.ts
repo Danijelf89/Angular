@@ -1,14 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { BodyInfo } from '../models/body-info/body-info';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BodyInfoService {
 
-  constructor() { }
-
   months : number[] = [];
+  mockDataUrl : string = "assets/mockData/bodyInfoData.json";
+  bodyInfoData$ : Observable<BodyInfo[]>;
+
+  private bodyInfoDataSubject = new BehaviorSubject<BodyInfo[]>([]);
+
+  constructor(private httpClient: HttpClient) { 
+    this.bodyInfoData$ = this.bodyInfoDataSubject.asObservable()}
+
+  getAllData() {
+    return this.httpClient.get<BodyInfo[]>(this.mockDataUrl).subscribe({
+      next: (data) =>{
+        this.bodyInfoDataSubject.next(data);
+        console.log('data:' + data)
+      },
+      error: (err) =>{
+        console.log("error" + err);
+      },
+    })
+  }
+
 
   loadMonths(monthsForm : FormGroup)
   {

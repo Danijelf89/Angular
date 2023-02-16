@@ -8,8 +8,13 @@ import { BodyInfoService } from './body-info.service';
   styleUrls: ['./body-info.component.css']
 })
 export class BodyInfoComponent {
+
+  bodyInfoData$ = this.service.bodyInfoData$;
+
   constructor(private service : BodyInfoService)
-  {}
+  {
+    this.service.getAllData();
+  }
 
   monthsForm = new FormGroup({
     januaryIsChecked : new FormControl(false),

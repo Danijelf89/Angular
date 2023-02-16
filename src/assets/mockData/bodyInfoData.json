@@ -1,0 +1,19 @@
+[
+    {
+    "userID" : 1,
+    "userGuid" : "00-445",
+    "userName" : "Danijel",
+    "userSurname": "Filipovic",
+    "kg" : 85,
+    "bodyFat" : 10
+    },
+
+    {
+        "userID" : 1,
+        "userGuid" : "00-445",
+        "userName" : "Danijel",
+        "userSurname": "Filipovic",
+        "kg" : 920,
+        "bodyFat" : 11
+        }
+]   

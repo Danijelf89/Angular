@@ -6,6 +6,7 @@ import { UserMenuModule } from '../user-menu/user-menu.module';
 import { UserInfoModule } from '../user-info/user-info.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BodyInfoService } from './body-info.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     UserMenuModule,
     UserInfoModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers:[BodyInfoService]
 })
