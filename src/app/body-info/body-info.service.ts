@@ -12,16 +12,26 @@ export class BodyInfoService {
   months : number[] = [];
   mockDataUrl : string = "assets/mockData/bodyInfoData.json";
   bodyInfoData$ : Observable<BodyInfo[]>;
+  nothingToShow$ : Observable<boolean>;
 
   private bodyInfoDataSubject = new BehaviorSubject<BodyInfo[]>([]);
+  private nothingToShoeSubject = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) { 
-    this.bodyInfoData$ = this.bodyInfoDataSubject.asObservable()}
+    this.bodyInfoData$ = this.bodyInfoDataSubject.asObservable()
+    this.nothingToShow$ = this.nothingToShoeSubject.asObservable()}
 
   getAllData() {
     return this.httpClient.get<BodyInfo[]>(this.mockDataUrl).subscribe({
       next: (data) =>{
         this.bodyInfoDataSubject.next(data);
+        if(data.length > 0)
+        {
+          this.nothingToShoeSubject.next(false);
+        }
+        else{
+          this.nothingToShoeSubject.next(true);
+        }
         console.log('data:' + data)
       },
       error: (err) =>{

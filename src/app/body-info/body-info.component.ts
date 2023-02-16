@@ -10,13 +10,16 @@ import { BodyInfoService } from './body-info.service';
 export class BodyInfoComponent {
 
   bodyInfoData$ = this.service.bodyInfoData$;
+  nothingToShow$ = this.service.nothingToShow$;
 
   constructor(private service : BodyInfoService)
   {
     this.service.getAllData();
   }
 
+
   monthsForm = new FormGroup({
+    
     januaryIsChecked : new FormControl(false),
     februarysChecked : new FormControl(false),
     marchsChecked : new FormControl(false),

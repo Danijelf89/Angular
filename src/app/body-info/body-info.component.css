@@ -10,3 +10,10 @@
     display: flex;
 }
 
+.no-display-image{
+    height: 50vh;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
