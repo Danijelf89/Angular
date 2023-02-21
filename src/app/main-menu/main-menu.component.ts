@@ -19,4 +19,5 @@ constructor(private service : MainMenuService)
   {
     this.service.openReport(appNumber);
   }
+  
 }
