@@ -3,15 +3,18 @@
         <ion-title>Settings</ion-title>
     </ion-toolbar>
     <ion-toolbar color="primary">
-        <ion-button icon-only slot="end" >
+        <ion-button (click)="save()" icon-only slot="end" >
             <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="back()" icon-only slot="start" >
+            <ion-icon name="chevron-back-outline"></ion-icon>
         </ion-button>
     </ion-toolbar>
 </ion-header>
 <ion-content>
     <ion-item>
         <ion-label slot="start">Language:</ion-label>
-        <ion-button (click)="ChangeLanguage()" slot="end">eng</ion-button>
+        <ion-button (click)="changeLanguage()" slot="end">{{language$ | async}}</ion-button>
     </ion-item>
     
 </ion-content>

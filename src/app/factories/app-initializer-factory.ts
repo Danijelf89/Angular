@@ -1,10 +1,10 @@
 import { TranslateService } from "@ngx-translate/core";
-import { LANGUAGE_STORAGE_KEY } from "../shared/app-constants";
+import { LANGUAGE_STORAGE_KEY, LOCALIZATIO_LANGUAGE_CODE_ENG, LOCALIZATIO_LANGUAGE_CODE_SRP } from "../shared/app-constants";
 
 export function loadDefaultLanguage(service : TranslateService)
 {
     return () => {
-    let langs: string[] = ['en', 'sr-Latn'];
+    let langs: string[] = [LOCALIZATIO_LANGUAGE_CODE_ENG, LOCALIZATIO_LANGUAGE_CODE_SRP];
     service.addLangs(langs);
 
     if(localStorage.getItem(LANGUAGE_STORAGE_KEY))
@@ -16,7 +16,7 @@ export function loadDefaultLanguage(service : TranslateService)
 
     const browLanguage = service.getBrowserLang();
     service.use(
-        browLanguage?.match(langs.join('|')) ? browLanguage : 'en'
+        browLanguage?.match(langs.join('|')) ? browLanguage : LOCALIZATIO_LANGUAGE_CODE_ENG
     );
 
     localStorage.setItem(LANGUAGE_STORAGE_KEY,service.currentLang);

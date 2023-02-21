@@ -35,7 +35,10 @@ export class BodyInfoComponent {
   })
 
   
-  
+  back()
+  {
+    this.service.navigateBack();
+  }
 
   menuClosed()
   {

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -17,7 +18,7 @@ export class BodyInfoService {
   private bodyInfoDataSubject = new BehaviorSubject<BodyInfo[]>([]);
   private nothingToShoeSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient, private location : Location) { 
     this.bodyInfoData$ = this.bodyInfoDataSubject.asObservable()
     this.nothingToShow$ = this.nothingToShoeSubject.asObservable()}
 
@@ -99,5 +100,10 @@ export class BodyInfoService {
     }
 
     console.log('meseci:' + this.months)
+  }
+
+  navigateBack()
+  {
+    this.location.back();
   }
 }

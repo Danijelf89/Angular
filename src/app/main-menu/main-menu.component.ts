@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppType } from '../enums/app-type';
+import { MainMenuService } from './main-menu.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -9,15 +10,13 @@ import { AppType } from '../enums/app-type';
 })
 export class MainMenuComponent {
   appType = AppType;
-constructor(private router : Router)
+constructor(private service : MainMenuService)
 {
 
 }
   
-
   chosenApp(appNumber : AppType)
   {
-
-    this.router.navigate(['body-info'])
+    this.service.openReport(appNumber);
   }
 }

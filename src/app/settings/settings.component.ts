@@ -8,13 +8,25 @@ import { SettingsService } from './settings.service';
 })
 export class SettingsComponent {
 
+  language$ = this.service.language$;
+
   constructor(private service : SettingsService)
   {
-
+    this.service.onLoad();
   }
 
-  ChangeLanguage()
+  changeLanguage()
   {
     this.service.selectLanguage();
+  }
+
+  save()
+  {
+    this.service.saveSettings();
+  }
+
+  back()
+  {
+    this.service.navigateBack();
   }
 }
