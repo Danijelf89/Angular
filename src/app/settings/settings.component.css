@@ -1,3 +1,13 @@
 :host{
     display: contents;
 }
+
+.left-align-buttons .action-sheet-button-inner.sc-ion-action-sheet-ios {
+    justify-content: flex-end;
+  }
+
+  .customCenter {
+    display: flex;    
+    align-items: center;    
+    justify-content: center; 
+}

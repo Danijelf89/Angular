@@ -10,6 +10,7 @@ import { httpLoaderFactory } from './factories/httpLoaderFactory';
 import { loadDefaultLanguage } from './factories/app-initializer-factory';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

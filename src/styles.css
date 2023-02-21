@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.left-align-buttons .action-sheet-button-inner.sc-ion-action-sheet-ios {
+    justify-content: flex-end;
+  }

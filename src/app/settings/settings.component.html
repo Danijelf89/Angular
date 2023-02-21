@@ -1,3 +1,17 @@
+<ion-header>
+    <ion-toolbar class="ion-text-center" color="primary">
+        <ion-title>Settings</ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-button icon-only slot="end" >
+            <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
 <ion-content>
-    settings component
+    <ion-item>
+        <ion-label slot="start">Language:</ion-label>
+        <ion-button (click)="ChangeLanguage()" slot="end">eng</ion-button>
+    </ion-item>
+    
 </ion-content>
