@@ -7,6 +7,7 @@ import { UserInfoModule } from '../user-info/user-info.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BodyInfoService } from './body-info.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BodyInfoChartComponent } from './body-info-chart/body-info-chart.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [BodyInfoComponent],
+  declarations: [BodyInfoComponent, BodyInfoChartComponent],
   imports: [
     RouterModule.forChild(routes),
     SharedModuleModule,

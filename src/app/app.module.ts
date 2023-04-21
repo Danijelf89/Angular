@@ -15,7 +15,7 @@ import { BodyInfoChartComponent } from './body-info/body-info-chart/body-info-ch
 @NgModule({
   declarations: [
     AppComponent,
-    BodyInfoChartComponent
+    
   ],
   imports: [
     BrowserModule,
