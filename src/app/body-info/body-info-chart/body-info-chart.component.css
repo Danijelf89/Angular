@@ -1,0 +1,12 @@
+:host{
+    display: contents;
+}
+
+.modal-wrapper {
+    --width: 90%;
+    --height: 90%;
+  }
+
+  .fill-available{
+    width: -webkit-fill-available;
+}

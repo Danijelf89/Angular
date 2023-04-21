@@ -11,6 +11,7 @@ export class BodyInfoComponent {
 
   bodyInfoData$ = this.service.bodyInfoData$;
   nothingToShow$ = this.service.nothingToShow$;
+  chosenMonths$ = this.service.chosenDate$;
 
   constructor(private service : BodyInfoService)
   {
@@ -43,6 +44,11 @@ export class BodyInfoComponent {
   menuClosed()
   {
     this.service.loadMonths(this.monthsForm);
+  }
+
+  openChartDetails()
+  {
+    this.service.openChartDetails();
   }
 
 }

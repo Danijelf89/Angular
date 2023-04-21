@@ -8,12 +8,14 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { httpLoaderFactory } from './factories/httpLoaderFactory';
 import { loadDefaultLanguage } from './factories/app-initializer-factory';
+import { BodyInfoChartComponent } from './body-info/body-info-chart/body-info-chart.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BodyInfoChartComponent
   ],
   imports: [
     BrowserModule,

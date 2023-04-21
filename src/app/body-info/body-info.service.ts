@@ -2,8 +2,10 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BodyInfo } from '../models/body-info/body-info';
+import { BodyInfoChartComponent } from './body-info-chart/body-info-chart.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +16,18 @@ export class BodyInfoService {
   mockDataUrl : string = "assets/mockData/bodyInfoData.json";
   bodyInfoData$ : Observable<BodyInfo[]>;
   nothingToShow$ : Observable<boolean>;
+  chosenDate$ : Observable<string>;
 
   private bodyInfoDataSubject = new BehaviorSubject<BodyInfo[]>([]);
   private nothingToShoeSubject = new BehaviorSubject<boolean>(false);
+  private chosenDateSubject = new BehaviorSubject<string>('');
 
-  constructor(private httpClient: HttpClient, private location : Location) { 
+  constructor(private httpClient: HttpClient, private location : Location, private modalCont : ModalController) { 
     this.bodyInfoData$ = this.bodyInfoDataSubject.asObservable()
-    this.nothingToShow$ = this.nothingToShoeSubject.asObservable()}
+    this.nothingToShow$ = this.nothingToShoeSubject.asObservable()
+    this.chosenDate$ = this.chosenDateSubject.asObservable()}
+
+
 
   getAllData() {
     return this.httpClient.get<BodyInfo[]>(this.mockDataUrl).subscribe({
@@ -41,6 +48,16 @@ export class BodyInfoService {
     })
   }
 
+  async openChartDetails()
+  {
+    const modal = await this.modalCont.create({
+      component : BodyInfoChartComponent,
+      
+      
+    })
+
+    modal.present();
+  }
 
   loadMonths(monthsForm : FormGroup)
   {
@@ -99,7 +116,7 @@ export class BodyInfoService {
       this.months.push(12);
     }
 
-    console.log('meseci:' + this.months)
+    this.chosenDateSubject.next(this.months.join(', '));
   }
 
   navigateBack()

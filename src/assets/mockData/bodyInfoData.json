@@ -5,7 +5,8 @@
     "userName" : "Danijel",
     "userSurname": "Filipovic",
     "kg" : 85,
-    "bodyFat" : 10
+    "bodyFat" : 10,
+    "messurementDate": "13-1-2023"
     },
 
     {
@@ -13,7 +14,26 @@
         "userGuid" : "00-445",
         "userName" : "Danijel",
         "userSurname": "Filipovic",
-        "kg" : 920,
-        "bodyFat" : 11
-        }
+        "kg" : 92,
+        "bodyFat" : 11,
+        "messurementDate": "13-1-2023"
+        },
+        {
+            "userID" : 1,
+            "userGuid" : "00-445",
+            "userName" : "Danijel",
+            "userSurname": "Filipovic",
+            "kg" : 44,
+            "bodyFat" : 11,
+            "messurementDate": "15-1-2023"
+            },
+            {
+                "userID" : 1,
+                "userGuid" : "00-445",
+                "userName" : "Danijel",
+                "userSurname": "Filipovic",
+                "kg" : 66,
+                "bodyFat" : 11,
+                "messurementDate": "20-1-2023"
+                }
 ]   
