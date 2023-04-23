@@ -4,19 +4,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModuleModule } from './shared/shared-module/shared-module.module';
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateService,
+} from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { httpLoaderFactory } from './factories/httpLoaderFactory';
 import { loadDefaultLanguage } from './factories/app-initializer-factory';
-import { BodyInfoChartComponent } from './body-info/body-info-chart/body-info-chart.component';
-
-
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -24,22 +22,21 @@ import { BodyInfoChartComponent } from './body-info/body-info-chart/body-info-ch
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
-      loader:{
-        provide:TranslateLoader,
+      loader: {
+        provide: TranslateLoader,
         useFactory: httpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }
-    )
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: loadDefaultLanguage,
       multi: true,
-      deps: [TranslateService]
-    }
+      deps: [TranslateService],
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

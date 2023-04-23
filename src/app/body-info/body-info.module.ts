@@ -7,26 +7,19 @@ import { UserInfoModule } from '../user-info/user-info.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BodyInfoService } from './body-info.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BodyInfoChartComponent } from './body-info-chart/body-info-chart.component';
-
-const routes: Routes = [
-  {
-      path: '',
-      component: BodyInfoComponent,
-  }
-];
+import { BodyInfRoutingModule } from './body-info-routing.module';
 
 @NgModule({
-  declarations: [BodyInfoComponent, BodyInfoChartComponent],
+  declarations: [BodyInfoComponent],
   imports: [
-    RouterModule.forChild(routes),
+    BodyInfRoutingModule,
     SharedModuleModule,
     UserMenuModule,
     UserInfoModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers:[BodyInfoService]
+  providers: [BodyInfoService],
 })
-export class BodyInfoModule { }
+export class BodyInfoModule {}

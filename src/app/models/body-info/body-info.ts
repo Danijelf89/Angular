@@ -5,5 +5,6 @@ export interface BodyInfo {
     userSurname: string,
     kg : number,
     bodyFat : number,
-    messurementDate : Date
+    messurementDate : Date,
+    water : number,
 }

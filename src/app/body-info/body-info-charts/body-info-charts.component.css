@@ -1,0 +1,8 @@
+:host {
+  display: contents;
+}
+
+.card-align-center {
+  text-align: -webkit-center;
+}
+

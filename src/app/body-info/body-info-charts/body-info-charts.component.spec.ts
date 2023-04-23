@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BodyInfoChartComponent } from './body-info-chart.component';
+import { BodyInfoChartsComponent } from './body-info-charts.component';
 
-describe('BodyInfoChartComponent', () => {
-  let component: BodyInfoChartComponent;
-  let fixture: ComponentFixture<BodyInfoChartComponent>;
+describe('BodyInfoChartsComponent', () => {
+  let component: BodyInfoChartsComponent;
+  let fixture: ComponentFixture<BodyInfoChartsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BodyInfoChartComponent ]
+      declarations: [ BodyInfoChartsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BodyInfoChartComponent);
+    fixture = TestBed.createComponent(BodyInfoChartsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

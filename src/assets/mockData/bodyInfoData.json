@@ -1,39 +1,128 @@
 [
-    {
-    "userID" : 1,
-    "userGuid" : "00-445",
-    "userName" : "Danijel",
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
     "userSurname": "Filipovic",
-    "kg" : 85,
-    "bodyFat" : 10,
+    "kg": 85,
+    "bodyFat": 10,
+    "water" : 53.4,
     "messurementDate": "13-1-2023"
-    },
+  },
 
-    {
-        "userID" : 1,
-        "userGuid" : "00-445",
-        "userName" : "Danijel",
-        "userSurname": "Filipovic",
-        "kg" : 92,
-        "bodyFat" : 11,
-        "messurementDate": "13-1-2023"
-        },
-        {
-            "userID" : 1,
-            "userGuid" : "00-445",
-            "userName" : "Danijel",
-            "userSurname": "Filipovic",
-            "kg" : 44,
-            "bodyFat" : 11,
-            "messurementDate": "15-1-2023"
-            },
-            {
-                "userID" : 1,
-                "userGuid" : "00-445",
-                "userName" : "Danijel",
-                "userSurname": "Filipovic",
-                "kg" : 66,
-                "bodyFat" : 11,
-                "messurementDate": "20-1-2023"
-                }
-]   
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 92,
+    "bodyFat": 11,
+    "water" : 52.4,
+    "messurementDate": "13-1-2023"
+  },
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 44,
+    "bodyFat": 11,
+    "water" : 53.7,
+    "messurementDate": "15-1-2023"
+  },
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 66,
+    "bodyFat": 11,
+    "water" : 53.2,
+    "messurementDate": "20-1-2023"
+  },
+
+
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 85,
+    "bodyFat": 10,
+    "water" : 53.4,
+    "messurementDate": "1-1-2023"
+  },
+
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 92,
+    "bodyFat": 11,
+    "water" : 53.4,
+    "messurementDate": "2-1-2023"
+  },
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 44,
+    "bodyFat": 11,
+    "water" : 53.4,
+    "messurementDate": "3-1-2023"
+  },
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 66,
+    "bodyFat": 11,
+    "water" : 53.4,
+    "messurementDate": "4-1-2023"
+  },
+
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 85,
+    "bodyFat": 10,
+    "water" : 53.4,
+    "messurementDate": "13-1-2023"
+  },
+
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 92,
+    "bodyFat": 11,
+    "water" : 53.4,
+    "messurementDate": "5-1-2023"
+  },
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 44,
+    "bodyFat": 11,
+    "water" : 53.4,
+    "messurementDate": "6-1-2023"
+  },
+  {
+    "userID": 1,
+    "userGuid": "00-445",
+    "userName": "Danijel",
+    "userSurname": "Filipovic",
+    "kg": 66,
+    "bodyFat": 11,
+    "water" : 55.4,
+    "messurementDate": "7-1-2023"
+  }
+]

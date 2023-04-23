@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <app-user-info></app-user-info>
+    <ion-buttons slot="end">
+      <ion-button>
+        <app-user-menu></app-user-menu>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" sizeLg="4" sizeMd="4">
+          <ion-list>
+            <ion-item>
+              <ion-select 
+                aria-label="Godina"
+                placeholder="Izaberi godinu"
+                (ionChange)="handleChange($event)"
+              >
+                <ion-select-option value="2023">2023</ion-select-option>
+                <ion-select-option value="2024">2024</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+  
+        <ion-col size="12" sizeLg="4" sizeMd="4">
+          <ion-list>
+            <ion-item>
+              <ion-select
+                aria-label="Mesec"
+                placeholder="Izaberi mesec"
+                (ionChange)="handleChange($event)"
+              >
+                <ion-select-option value="1">Januar</ion-select-option>
+                <ion-select-option value="2">Februar</ion-select-option>
+                <ion-select-option value="3">Mart</ion-select-option>
+                <ion-select-option value="4">April</ion-select-option>
+                <ion-select-option value="5">Maj</ion-select-option>
+                <ion-select-option value="6">Jun</ion-select-option>
+                <ion-select-option value="7">Jul</ion-select-option>
+                <ion-select-option value="8">Avgust</ion-select-option>
+                <ion-select-option value="9">Septembar</ion-select-option>
+                <ion-select-option value="10">Oktobar</ion-select-option>
+                <ion-select-option value="11">Novembar</ion-select-option>
+                <ion-select-option value="12">Decembar</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+  
+        <ion-col size="12" sizeLg="4" sizeMd="4">
+          <ion-list>
+            <ion-item>
+              <ion-select
+                aria-label="Tip"
+                placeholder="Izaberi tip"
+                (ionChange)="handleChange($event)" [multiple]="true"
+              >
+              <ion-select-option value="All">Sve</ion-select-option>
+                <ion-select-option value="Kg">Kg</ion-select-option>
+                <ion-select-option value="Masnoca">Masnoca</ion-select-option>
+                <ion-select-option value="Voda">Voda</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    
+    <ion-row>
+      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="chartKgShow$ | async">
+        <ion-card class="card-align-center" *ngIf="chartKgShow$ | async">
+          <canvas  id="chartCanvasKg">{{ chartKg }}</canvas>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="chartBodyFatShow$ | async">
+        <ion-card class="card-align-center">
+          <canvas id="chartCanvasBodyFat">{{ chartKg }}</canvas>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="chartBodyWaterShow$ | async">
+        <ion-card class="card-align-center">
+          <canvas id="chartCanvasWater">{{ chartWater }}</canvas>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
