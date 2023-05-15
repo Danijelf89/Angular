@@ -4,11 +4,12 @@ import { IonicModule } from '@ionic/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { PrintingComponent } from '../printing/printing.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PrintingComponent],
   imports: [
     CommonModule,
     IonicModule.forRoot(),
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     IonicModule,
     RouterModule,
-    TranslateModule
+    TranslateModule,
+    PrintingComponent
   ]
 })
 export class SharedModuleModule { }

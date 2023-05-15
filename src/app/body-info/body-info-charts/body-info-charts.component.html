@@ -2,6 +2,10 @@
   <ion-toolbar color="primary">
     <app-user-info></app-user-info>
     <ion-buttons slot="end">
+      <ion-button *ngIf="!(isShowinfDetails$ | async)">
+        <app-printing [window]="window"></app-printing>
+      </ion-button>
+
       <ion-button>
         <app-user-menu></app-user-menu>
       </ion-button>
@@ -12,13 +16,13 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="primary" *ngIf="isShowinfDetails$ | async">
     <ion-grid>
       <ion-row>
         <ion-col size="12" sizeLg="4" sizeMd="4">
           <ion-list>
             <ion-item>
-              <ion-select 
+              <ion-select
                 aria-label="Godina"
                 placeholder="Izaberi godinu"
                 (ionChange)="handleChange($event)"
@@ -29,7 +33,7 @@
             </ion-item>
           </ion-list>
         </ion-col>
-  
+
         <ion-col size="12" sizeLg="4" sizeMd="4">
           <ion-list>
             <ion-item>
@@ -54,16 +58,17 @@
             </ion-item>
           </ion-list>
         </ion-col>
-  
+
         <ion-col size="12" sizeLg="4" sizeMd="4">
           <ion-list>
             <ion-item>
               <ion-select
                 aria-label="Tip"
                 placeholder="Izaberi tip"
-                (ionChange)="handleChange($event)" [multiple]="true"
+                (ionChange)="handleChange($event)"
+                [multiple]="true"
               >
-              <ion-select-option value="All">Sve</ion-select-option>
+                <ion-select-option value="All">Sve</ion-select-option>
                 <ion-select-option value="Kg">Kg</ion-select-option>
                 <ion-select-option value="Masnoca">Masnoca</ion-select-option>
                 <ion-select-option value="Voda">Voda</ion-select-option>
@@ -74,24 +79,76 @@
       </ion-row>
     </ion-grid>
   </ion-toolbar>
+  <ion-toolbar color="primary" class="no-print">
+    <ion-segment [value]="0" (ionChange)="changeTab($event)">
+      <ion-segment-button value="0">
+        <ion-label>Details</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>Preview</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-grid>
-    
+  <ion-grid *ngIf="isShowinfDetails$ | async">
     <ion-row>
       <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="chartKgShow$ | async">
         <ion-card class="card-align-center" *ngIf="chartKgShow$ | async">
-          <canvas  id="chartCanvasKg">{{ chartKg }}</canvas>
+          <canvas id="chartCanvasKg">{{ chartKg }}</canvas>
         </ion-card>
       </ion-col>
-      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="chartBodyFatShow$ | async">
+
+      <ion-col
+        size="12"
+        sizeLg="6"
+        sizeMd="6"
+        *ngIf="chartBodyFatShow$ | async"
+      >
         <ion-card class="card-align-center">
           <canvas id="chartCanvasBodyFat">{{ chartKg }}</canvas>
         </ion-card>
       </ion-col>
-      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="chartBodyWaterShow$ | async">
+      <ion-col
+        size="12"
+        sizeLg="6"
+        sizeMd="6"
+        *ngIf="chartBodyWaterShow$ | async"
+      >
         <ion-card class="card-align-center">
           <canvas id="chartCanvasWater">{{ chartWater }}</canvas>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!(isShowinfDetails$ | async)">
+    <ion-row>
+      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="imgUrlChartKg$ | async">
+        <ion-card class="card-align-center" *ngIf="chartKgShow$ | async">
+          <ion-img src="{{ imgUrlChartKg$ | async }}"></ion-img>
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        size="12"
+        sizeLg="6"
+        sizeMd="6"
+        *ngIf="imgUrlChartBodyFat$ | async"
+      >
+        <ion-card class="card-align-center" *ngIf="chartBodyFatShow$ | async">
+          <ion-img src="{{ imgUrlChartBodyFat$ | async }}"></ion-img>
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        size="12"
+        sizeLg="6"
+        sizeMd="6"
+        *ngIf="imgUrlChartWater$ | async"
+      >
+        <ion-card class="card-align-center" *ngIf="chartBodyWaterShow$ | async">
+          <ion-img src="{{ imgUrlChartWater$ | async }}"></ion-img>
         </ion-card>
       </ion-col>
     </ion-row>
