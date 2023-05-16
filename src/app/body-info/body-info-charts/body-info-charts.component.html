@@ -68,10 +68,10 @@
                 (ionChange)="handleChange($event)"
                 [multiple]="true"
               >
-                <ion-select-option value="All">Sve</ion-select-option>
-                <ion-select-option value="Kg">Kg</ion-select-option>
-                <ion-select-option value="Masnoca">Masnoca</ion-select-option>
-                <ion-select-option value="Voda">Voda</ion-select-option>
+                <ion-select-option value=0>Sve</ion-select-option>
+                <ion-select-option value=1>Kg</ion-select-option>
+                <ion-select-option value=2>Masnoca</ion-select-option>
+                <ion-select-option value=3>Voda</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
@@ -122,10 +122,10 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid *ngIf="!(isShowinfDetails$ | async)">
+  <ion-grid >
     <ion-row>
-      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="imgUrlChartKg$ | async">
-        <ion-card class="card-align-center" *ngIf="chartKgShow$ | async">
+      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="(imgUrlChartKg$ | async) || !(isShowinfDetails$ |async)">
+        <ion-card class="card-align-center" *ngIf="(chartKgShow$ | async) && !(isShowinfDetails$ |async)">
           <ion-img src="{{ imgUrlChartKg$ | async }}"></ion-img>
         </ion-card>
       </ion-col>
@@ -134,9 +134,9 @@
         size="12"
         sizeLg="6"
         sizeMd="6"
-        *ngIf="imgUrlChartBodyFat$ | async"
+        *ngIf="(imgUrlChartBodyFat$ | async) && !(isShowinfDetails$ |async)"
       >
-        <ion-card class="card-align-center" *ngIf="chartBodyFatShow$ | async">
+        <ion-card class="card-align-center" *ngIf="(chartBodyFatShow$ | async) && !(isShowinfDetails$ |async)">
           <ion-img src="{{ imgUrlChartBodyFat$ | async }}"></ion-img>
         </ion-card>
       </ion-col>
@@ -145,9 +145,9 @@
         size="12"
         sizeLg="6"
         sizeMd="6"
-        *ngIf="imgUrlChartWater$ | async"
+        *ngIf="(imgUrlChartWater$ | async) && !(isShowinfDetails$ |async)"
       >
-        <ion-card class="card-align-center" *ngIf="chartBodyWaterShow$ | async">
+        <ion-card class="card-align-center" *ngIf="(chartBodyWaterShow$ | async) && !(isShowinfDetails$ |async)">
           <ion-img src="{{ imgUrlChartWater$ | async }}"></ion-img>
         </ion-card>
       </ion-col>
