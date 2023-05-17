@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { BodyInfo } from 'src/app/models/body-info/body-info';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 import { BodyInfoChartsState } from 'src/app/models/body-info-charts-state';
 import { ChartTypes } from 'src/app/enums/chart-types';
 
@@ -51,12 +51,35 @@ export class BodyInfoChartsService {
     this.location.back();
   }
 
-  getChartData() {
-    return this.httpClient.get<BodyInfo[]>(this.mockDataUrl);
+  getChartData()  {
+    return this.httpClient.get<BodyInfo[]>(this.mockDataUrl).pipe(
+      map(bodyInfoData => {
+        //return bodyInfoData.filter((bdy) => new Date(bdy.messurementDate).getFullYear() === this.bodyInfoChartsStateSubject.value.year &&
+        //new Date(bdy.messurementDate).getMonth() === this.bodyInfoChartsStateSubject.value.month)
+         
+        let bodyList : BodyInfo[] = [];
+
+        bodyInfoData.forEach(element => {
+          if(new Date(element.messurementDate).getFullYear() == this.bodyInfoChartsStateSubject.value.year
+          && new Date(element.messurementDate).getMonth() == this.bodyInfoChartsStateSubject.value.month)
+          {
+            console.log('date izabranog {0} state {1}', new Date(element.messurementDate).getMonth(), this.bodyInfoChartsStateSubject.value)
+            bodyList.push(element);
+          }
+        });
+
+        return bodyList;
+        
+      }),
+    );
+
+
   }
 
   loadInitalData() {
     var dt = new Date();
+
+    console.log('initial data month', dt);
 
     this.bodyInfoChartsStateSubject.next({
       ...this.bodyInfoChartsStateSubject.value,
@@ -107,6 +130,20 @@ export class BodyInfoChartsService {
     } else {
       this.imgUrlChartWaterUrlSubject.next('');
     }
+  }
+
+  filterChartsByYear(year: string){
+    this.bodyInfoChartsStateSubject.next({
+      ...this.bodyInfoChartsStateSubject.value,
+      year: +year,
+    });
+  }
+
+  filterChartsByMonth(month: string){
+    this.bodyInfoChartsStateSubject.next({
+      ...this.bodyInfoChartsStateSubject.value,
+      month: parseInt(month),
+    });
   }
 
   filterChartsByType(types: string[]) {

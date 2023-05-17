@@ -12,6 +12,7 @@ export class BodyInfoComponent {
   bodyInfoData$ = this.service.bodyInfoData$;
   nothingToShow$ = this.service.nothingToShow$;
   chosenMonths$ = this.service.chosenDate$;
+  chosenYear$ = this.service.chosenYear$;
 
   constructor(private service : BodyInfoService)
   {
@@ -32,8 +33,20 @@ export class BodyInfoComponent {
     septembersChecked : new FormControl(false),
     octobersChecked : new FormControl(false),
     novembersChecked : new FormControl(false),
-    decembersChecked : new FormControl(false)
+    decembersChecked : new FormControl(false),
+    chosenYear : new FormControl('')
+
+    
   })
+
+  handleChangeYearChanged(e: any) {
+    
+
+    this.monthsForm.patchValue({
+      chosenYear: e.detail.value,
+    });
+    
+  }
 
   
   back()

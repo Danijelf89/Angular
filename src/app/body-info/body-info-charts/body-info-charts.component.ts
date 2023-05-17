@@ -69,6 +69,7 @@ export class BodyInfoChartsComponent implements AfterViewInit {
   refreshChartData(bodyInfoData: BodyInfoChartsState) {
     this.service.getChartData().subscribe({
       next: (data) => {
+        console.log('body info data filtered', data);
         this.createChart(data, bodyInfoData);
         this.changeCanvasToPicture();
       },
@@ -79,10 +80,24 @@ export class BodyInfoChartsComponent implements AfterViewInit {
   }
 
   handleChange(e: any) {
-    this.selectedCharts = e.detail.value;
+    
 
     this.service.filterChartsByType(e.detail.value);
-    //this.refreshChartData();
+    
+  }
+
+  handleChangeYearChanged(e: any) {
+    
+
+    this.service.filterChartsByYear(e.detail.value);
+    
+  }
+
+  handleChangeMonth(e: any) {
+    
+
+    this.service.filterChartsByMonth(e.detail.value);
+    
   }
 
   private createChart(chartdata: any, bodyInfoData: BodyInfoChartsState) {
@@ -133,7 +148,7 @@ export class BodyInfoChartsComponent implements AfterViewInit {
         });
       }
 
-      if (value == ChartTypes.All || ChartTypes.BodyFat) {
+      if (value == ChartTypes.All || value == ChartTypes.BodyFat) {
         this.chartBodyFat = new Chart('chartCanvasBodyFat', {
           type: 'line', //this denotes tha type of chart
 
