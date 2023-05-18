@@ -12,7 +12,7 @@ import { BodyInfo } from '../models/body-info/body-info';
 })
 export class BodyInfoService {
   months: number[] = [];
-  mockDataUrl: string = 'assets/mockData/bodyInfoData.json';
+  mockDataUrl = 'assets/mockData/bodyInfoData.json';
   bodyInfoData$: Observable<BodyInfo[]>;
   nothingToShow$: Observable<boolean>;
   chosenDate$: Observable<string>;
@@ -37,7 +37,7 @@ export class BodyInfoService {
 
   setInitalFilterData()
   {
-    let td: Date = new Date();
+    const td: Date = new Date();
     this.chosenYearSubject.next(td.getFullYear().toString());
     this.chosenDateSubject.next(this.createMonthsList(td.getMonth()));
 
@@ -49,7 +49,7 @@ export class BodyInfoService {
 
     return this.httpClient.get<BodyInfo[]>(this.mockDataUrl).pipe(
       map((bodyinfo : BodyInfo[]) => {
-        let bodyList : BodyInfo[] = [];
+        const bodyList : BodyInfo[] = [];
 
         bodyinfo.forEach(element => {
           console.log('element month', new Date(element.messurementDate).getMonth());
@@ -96,7 +96,7 @@ export class BodyInfoService {
 
   loadMonths(monthsForm: FormGroup) {
     this.months = [];
-    let chosenMonthsSTring: string[] = [];
+    const chosenMonthsSTring: string[] = [];
 
     if (monthsForm.value.januaryIsChecked) {
       this.months.push(0);
@@ -154,7 +154,7 @@ export class BodyInfoService {
     if (monthsForm.value.chosenYear != '') {
       this.chosenYearSubject.next(monthsForm.value.chosenYear);
     } else if (this.chosenYearSubject.value == '') {
-      let td: Date = new Date();
+      const td: Date = new Date();
       this.chosenYearSubject.next(td.getFullYear().toString());
     }
 

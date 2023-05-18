@@ -18,9 +18,9 @@ import { loadDefaultLanguage } from './factories/app-initializer-factory';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModuleModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModuleModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

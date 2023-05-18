@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserMenuComponent } from './user-menu.component';
 import { SharedModuleModule } from '../shared/shared-module/shared-module.module';
 import { UserMenuService } from './user-menu.service';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 

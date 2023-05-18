@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <app-user-info></app-user-info>
     <ion-buttons slot="end">
-      <ion-button *ngIf="!(isShowinfDetails$ | async)">
+      <ion-button *ngIf="(isShowinfDetails$ | async) === false">
         <app-printing [window]="window"></app-printing>
       </ion-button>
 
@@ -124,8 +124,8 @@
 
   <ion-grid >
     <ion-row>
-      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="(imgUrlChartKg$ | async) || !(isShowinfDetails$ |async)">
-        <ion-card class="card-align-center" *ngIf="(chartKgShow$ | async) && !(isShowinfDetails$ |async)">
+      <ion-col size="12" sizeLg="6" sizeMd="6" *ngIf="(imgUrlChartKg$ | async) || (isShowinfDetails$ |async) === false">
+        <ion-card class="card-align-center" *ngIf="(chartKgShow$ | async) && (isShowinfDetails$ |async) === false">
           <ion-img src="{{ imgUrlChartKg$ | async }}"></ion-img>
         </ion-card>
       </ion-col>
@@ -134,9 +134,9 @@
         size="12"
         sizeLg="6"
         sizeMd="6"
-        *ngIf="(imgUrlChartBodyFat$ | async) && !(isShowinfDetails$ |async)"
+        *ngIf="(imgUrlChartBodyFat$ | async) && (isShowinfDetails$ |async) === false"
       >
-        <ion-card class="card-align-center" *ngIf="(chartBodyFatShow$ | async) && !(isShowinfDetails$ |async)">
+        <ion-card class="card-align-center" *ngIf="(chartBodyFatShow$ | async) && (isShowinfDetails$ |async) === false">
           <ion-img src="{{ imgUrlChartBodyFat$ | async }}"></ion-img>
         </ion-card>
       </ion-col>
@@ -145,9 +145,9 @@
         size="12"
         sizeLg="6"
         sizeMd="6"
-        *ngIf="(imgUrlChartWater$ | async) && !(isShowinfDetails$ |async)"
+        *ngIf="(imgUrlChartWater$ | async) && (isShowinfDetails$ |async) === false"
       >
-        <ion-card class="card-align-center" *ngIf="(chartBodyWaterShow$ | async) && !(isShowinfDetails$ |async)">
+        <ion-card class="card-align-center" *ngIf="(chartBodyWaterShow$ | async) && (isShowinfDetails$ |async) === false">
           <ion-img src="{{ imgUrlChartWater$ | async }}"></ion-img>
         </ion-card>
       </ion-col>

@@ -13,7 +13,7 @@ export class SettingsService {
 
   language$ : Observable<string>;
   private languageSubject = new BehaviorSubject<string>('');
-  selectedLanguage : string = '';
+  selectedLanguage  = '';
 
   constructor(private translate: TranslateService, private actionSheetController : ActionSheetController, 
     private toastService : ToastMessageService, private location : Location) { 

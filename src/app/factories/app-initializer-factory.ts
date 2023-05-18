@@ -4,7 +4,7 @@ import { LANGUAGE_STORAGE_KEY, LOCALIZATIO_LANGUAGE_CODE_ENG, LOCALIZATIO_LANGUA
 export function loadDefaultLanguage(service : TranslateService)
 {
     return () => {
-    let langs: string[] = [LOCALIZATIO_LANGUAGE_CODE_ENG, LOCALIZATIO_LANGUAGE_CODE_SRP];
+    const langs: string[] = [LOCALIZATIO_LANGUAGE_CODE_ENG, LOCALIZATIO_LANGUAGE_CODE_SRP];
     service.addLangs(langs);
 
     if(localStorage.getItem(LANGUAGE_STORAGE_KEY))

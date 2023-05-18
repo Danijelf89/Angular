@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { BodyInfo } from 'src/app/models/body-info/body-info';
-import { BehaviorSubject, Observable, filter, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { BodyInfoChartsState } from 'src/app/models/body-info-charts-state';
 import { ChartTypes } from 'src/app/enums/chart-types';
 
@@ -10,7 +10,7 @@ import { ChartTypes } from 'src/app/enums/chart-types';
   providedIn: 'root',
 })
 export class BodyInfoChartsService {
-  mockDataUrl: string = 'assets/mockData/bodyInfoData.json';
+  mockDataUrl = 'assets/mockData/bodyInfoData.json';
   showKgChart$: Observable<boolean>;
   showBodyFatChart$: Observable<boolean>;
   showBodWaterChart$: Observable<boolean>;
@@ -54,10 +54,9 @@ export class BodyInfoChartsService {
   getChartData()  {
     return this.httpClient.get<BodyInfo[]>(this.mockDataUrl).pipe(
       map(bodyInfoData => {
-        //return bodyInfoData.filter((bdy) => new Date(bdy.messurementDate).getFullYear() === this.bodyInfoChartsStateSubject.value.year &&
-        //new Date(bdy.messurementDate).getMonth() === this.bodyInfoChartsStateSubject.value.month)
+        
          
-        let bodyList : BodyInfo[] = [];
+        const bodyList : BodyInfo[] = [];
 
         bodyInfoData.forEach(element => {
           if(new Date(element.messurementDate).getFullYear() == this.bodyInfoChartsStateSubject.value.year
@@ -77,7 +76,7 @@ export class BodyInfoChartsService {
   }
 
   loadInitalData() {
-    var dt = new Date();
+    const dt = new Date();
 
     console.log('initial data month', dt);
 
@@ -104,7 +103,7 @@ export class BodyInfoChartsService {
 
   setKgCanvasPictureUrl(kgCanvas: HTMLCanvasElement) {
     if (kgCanvas != null) {
-      var dataURL = kgCanvas.toDataURL();
+      const dataURL = kgCanvas.toDataURL();
       this.imgUrlChartKgUrlSubject.next(dataURL);
     } else {
       this.imgUrlChartKgUrlSubject.next('');
@@ -114,7 +113,7 @@ export class BodyInfoChartsService {
   setBodyfatCanvasPictureUrl(bodyFatCanvas: HTMLCanvasElement) {
     if (bodyFatCanvas != null) {
       console.log('body fat entered');
-      var dataURL = bodyFatCanvas.toDataURL();
+      const dataURL = bodyFatCanvas.toDataURL();
       this.imgUrlChartBodyFatUrlSubject.next(dataURL);
       console.log('body fat set', dataURL);
     } else {
@@ -125,7 +124,7 @@ export class BodyInfoChartsService {
 
   setWaterCanvasPictureUrl(waterCanvas: HTMLCanvasElement) {
     if (waterCanvas != null) {
-      var dataURL = waterCanvas.toDataURL();
+      const dataURL = waterCanvas.toDataURL();
       this.imgUrlChartWaterUrlSubject.next(dataURL);
     } else {
       this.imgUrlChartWaterUrlSubject.next('');
@@ -148,7 +147,7 @@ export class BodyInfoChartsService {
 
   filterChartsByType(types: string[]) {
     console.log('type', types);
-    let listOfTypes: number[] = [];
+    const listOfTypes: number[] = [];
 
     if (types.includes(ChartTypes.All.toString())) {
       this.showKgChartSubject.next(true);

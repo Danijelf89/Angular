@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { BodyInfo } from 'src/app/models/body-info/body-info';
 import { BodyInfoChartsService } from './body-info-charts.service';
@@ -32,7 +32,7 @@ export class BodyInfoChartsComponent implements AfterViewInit {
   chartsType = ChartTypes;
 
   constructor(private service: BodyInfoChartsService) {
-    this.bodyInfoChartsState$.subscribe((value: any) => {
+    this.bodyInfoChartsState$.subscribe((value: BodyInfoChartsState) => {
       console.log('value imamo', value);
       this.refreshChartData(value);
     });
@@ -79,28 +79,28 @@ export class BodyInfoChartsComponent implements AfterViewInit {
     });
   }
 
-  handleChange(e: any) {
+  handleChange(e: Event) {
     
 
-    this.service.filterChartsByType(e.detail.value);
-    
-  }
-
-  handleChangeYearChanged(e: any) {
-    
-
-    this.service.filterChartsByYear(e.detail.value);
+    this.service.filterChartsByType((<CustomEvent>e).detail.value);
     
   }
 
-  handleChangeMonth(e: any) {
+  handleChangeYearChanged(e: Event) {
     
 
-    this.service.filterChartsByMonth(e.detail.value);
+    this.service.filterChartsByYear((<CustomEvent>e).detail.value);
     
   }
 
-  private createChart(chartdata: any, bodyInfoData: BodyInfoChartsState) {
+  handleChangeMonth(e: Event) {
+    
+
+    this.service.filterChartsByMonth((<CustomEvent>e).detail.value);
+    
+  }
+
+  private createChart(chartdata: BodyInfo[], bodyInfoData: BodyInfoChartsState) {
     console.log('selected Charts', bodyInfoData);
 
     if (this.chartKg != null) {

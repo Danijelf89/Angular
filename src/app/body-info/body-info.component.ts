@@ -34,12 +34,12 @@ export class BodyInfoComponent implements OnInit {
     chosenYear: new FormControl(''),
   });
 
-  handleChangeYearChanged(e: any) {
+  handleChangeYearChanged(e: Event) {
     this.monthsForm.patchValue({
-      chosenYear: e.detail.value,
+      chosenYear: (<CustomEvent>e).detail.value,
     });
 
-    this.service.yearChanged(e.detail.value);
+    this.service.yearChanged((<CustomEvent>e).detail.value);
   }
 
   back() {

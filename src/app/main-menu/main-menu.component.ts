@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { AppType } from '../enums/app-type';
 import { MainMenuService } from './main-menu.service';
 
